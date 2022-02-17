@@ -22,9 +22,7 @@ function computerPlay(){
     return result;
 }
 
-
-
-function game(){
+function playRound(){
     if (playerSelection == computerSelection){
         return "No winner this time!"
     }
@@ -46,6 +44,12 @@ function game(){
     else if (playerSelection == 'SCISSORS' && computerSelection == "PAPER"){
         return "You Won!"
     }
+}
+
+
+function game(){
+    
+  
 }
 console.log(playerSelection, computerSelection);
 console.log(game()); 
