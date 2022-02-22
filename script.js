@@ -8,12 +8,14 @@ return a string ' You loose ! Paper beats Rock'
 
 make playerSelection case insensetive */
 
-let input = window.prompt('Please make your choise: Rock, Paper or Scissors',);
-let correctInput = input.toUpperCase();
+function userPlay(){
+    let input = window.prompt('Please make your choise: Rock, Paper or Scissors',);
+    let correctInput = input.toUpperCase();
+    return correctInput;
+}
 
 
-const playerSelection = correctInput;
-const computerSelection = computerPlay();
+
 
 function computerPlay(){
     const selection = ['ROCK', 'PAPER', 'SCISSORS'];
@@ -23,6 +25,10 @@ function computerPlay(){
 }
 
 function playRound(){
+    let playerSelection = userPlay()
+    let computerSelection = computerPlay()
+    console.log(playerSelection, computerSelection);
+
     if (playerSelection == computerSelection){
         return "No winner this time!"
     }
@@ -44,22 +50,42 @@ function playRound(){
     else if (playerSelection == 'SCISSORS' && computerSelection == "PAPER"){
         return "You Won!"
     }
+    
 }
 
 // function game that stores 5 rounds, gives result to each round and final result 
 // for each round promt -> play -> store result 
 function game(){
-    for ( let round = 0; round <=5; round++ ){
-        let input = window.prompt('Please make your choise: Rock, Paper or Scissors',);
-        playRound();
-        if (round <5){
-            let input = window.prompt('Please make your choise: Rock, Paper or Scissors',);
-        playRound();
-        }
+    let computerResult = 0;
+    let playerResult = 0; 
+    for ( let round = 0; round <5; round++ ){
+        const result = playRound();
+        if (result == "You Lost!"){
+            computerResult ++;
+        } 
+        if (result == "You Won!"){
+            playerResult ++;
+        } 
+    console.log(playerResult, computerResult);
     }
-  
-}
+    if (computerResult > playerResult){
+        return "You Lost!";  
+    }
+    else if (playerResult > computerResult){
+        return "You Won!"
+    } 
+    else {
+        return "Tie. Play Again";
+    }
+    }
 
-;
-console.log(playerSelection, computerSelection);
+
+    
+
+  // additional loop if on the 5th round there is a tie 
+
+
+
+
+
 console.log(game()); 
