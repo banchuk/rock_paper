@@ -46,10 +46,20 @@ function playRound(){
     }
 }
 
-
+// function game that stores 5 rounds, gives result to each round and final result 
+// for each round promt -> play -> store result 
 function game(){
-    
+    for ( let round = 0; round <=5; round++ ){
+        let input = window.prompt('Please make your choise: Rock, Paper or Scissors',);
+        playRound();
+        if (round <5){
+            let input = window.prompt('Please make your choise: Rock, Paper or Scissors',);
+        playRound();
+        }
+    }
   
 }
+
+;
 console.log(playerSelection, computerSelection);
 console.log(game()); 
